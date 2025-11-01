@@ -239,10 +239,10 @@ export default function DigitalCollageMotivator() {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             color: '#ffffff',
-            fontSize: '1.5rem',
-            fontWeight: '900',
+            fontSize: '1.8rem',
+            fontWeight: '700',
             pointerEvents: 'none',
-            textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(0,0,0,0.5)'
+            letterSpacing: '0.5px'
           }}>
             여기에 그려보세요
           </div>
