@@ -213,6 +213,7 @@ export default function DigitalCollageMotivator() {
   const renderMiniCanvas = () => {
     return (
       <div
+        className="mini-canvas"
         style={{
           position: 'relative',
           width: '100%',
@@ -331,7 +332,26 @@ export default function DigitalCollageMotivator() {
   };
 
   const renderCollagePage = () => (
-    <div style={{ display: 'grid', gridTemplateColumns: '350px 1fr', gap: '20px' }}>
+    <div className="collage-container">
+      <style>{`
+        .collage-container {
+          display: grid;
+          grid-template-columns: 350px 1fr;
+          gap: 20px;
+        }
+
+        @media (max-width: 1024px) {
+          .collage-container {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .mini-canvas {
+            height: 200px !important;
+          }
+        }
+      `}</style>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
         <div style={{
@@ -490,17 +510,31 @@ export default function DigitalCollageMotivator() {
         }}>
           내 작품 캔버스
         </h3>
+        <style>{`
+          .main-canvas-area {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background-color: #ffffff;
+            border: 4px dashed #c7d2fe;
+            border-radius: 8px;
+            overflow: hidden;
+          }
+
+          @media (max-width: 1024px) {
+            .main-canvas-area {
+              height: 500px;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .main-canvas-area {
+              height: 400px;
+            }
+          }
+        `}</style>
         <div
           className="main-canvas-area"
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '600px',
-            backgroundColor: '#ffffff',
-            border: '4px dashed #c7d2fe',
-            borderRadius: '8px',
-            overflow: 'hidden'
-          }}
           onMouseMove={handleShapeDragMove}
           onMouseUp={handleShapeDragEnd}
           onMouseLeave={handleShapeDragEnd}
