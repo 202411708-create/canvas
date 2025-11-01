@@ -306,10 +306,15 @@ export default function DigitalCollageMotivator() {
       left: `${shape.x}%`,
       top: `${shape.y}%`,
       transform: 'translate(-50%, -50%)',
-      cursor: draggingId === shape.id ? 'grabbing' : 'grab',
       touchAction: 'none',
       userSelect: 'none',
-      pointerEvents: 'auto'
+      pointerEvents: 'none'
+    };
+
+    const svgStyle = {
+      overflow: 'visible',
+      pointerEvents: 'auto',
+      cursor: draggingId === shape.id ? 'grabbing' : 'grab'
     };
 
     return (
@@ -317,32 +322,39 @@ export default function DigitalCollageMotivator() {
         key={shape.id}
         className="main-canvas-shape"
         style={containerStyle}
-        onMouseDown={(e) => handleShapeDragStart(e, shape)}
-        onMouseMove={(e) => {
-          if (draggingId === shape.id) {
-            handleShapeDragMove(e);
-          }
-        }}
-        onMouseUp={handleShapeDragEnd}
-        onMouseLeave={(e) => {
-          if (draggingId === shape.id) {
-            handleShapeDragEnd();
-          }
-        }}
-        onTouchStart={(e) => handleShapeDragStart(e, shape)}
-        onTouchMove={(e) => {
-          if (draggingId === shape.id) {
-            handleShapeDragMove(e);
-          }
-        }}
-        onTouchEnd={handleShapeDragEnd}
       >
-        <svg width="300" height="300" style={{ overflow: 'visible', pointerEvents: 'none' }}>
+        <svg
+          width="300"
+          height="300"
+          style={svgStyle}
+          onMouseDown={(e) => handleShapeDragStart(e, shape)}
+          onMouseMove={(e) => {
+            if (draggingId === shape.id) {
+              e.preventDefault();
+              handleShapeDragMove(e);
+            }
+          }}
+          onMouseUp={handleShapeDragEnd}
+          onMouseLeave={(e) => {
+            if (draggingId === shape.id) {
+              handleShapeDragEnd();
+            }
+          }}
+          onTouchStart={(e) => handleShapeDragStart(e, shape)}
+          onTouchMove={(e) => {
+            if (draggingId === shape.id) {
+              e.preventDefault();
+              handleShapeDragMove(e);
+            }
+          }}
+          onTouchEnd={handleShapeDragEnd}
+        >
           <path
             d={createSVGPath(shape.path)}
             fill={shape.color}
             stroke={shape.color}
             strokeWidth="2"
+            style={{ pointerEvents: 'fill' }}
           />
         </svg>
       </div>
