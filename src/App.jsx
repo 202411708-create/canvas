@@ -301,6 +301,20 @@ export default function DigitalCollageMotivator() {
   };
 
   const renderMainCanvasShape = (shape) => {
+    // 도형의 실제 경계 계산
+    const minX = Math.min(...shape.path.map(p => p.x));
+    const maxX = Math.max(...shape.path.map(p => p.x));
+    const minY = Math.min(...shape.path.map(p => p.y));
+    const maxY = Math.max(...shape.path.map(p => p.y));
+    const width = maxX - minX;
+    const height = maxY - minY;
+
+    // path를 원점 기준으로 변환
+    const normalizedPath = shape.path.map(p => ({
+      x: p.x - minX,
+      y: p.y - minY
+    }));
+
     const containerStyle = {
       position: 'absolute',
       left: `${shape.x}%`,
@@ -308,13 +322,15 @@ export default function DigitalCollageMotivator() {
       transform: 'translate(-50%, -50%)',
       touchAction: 'none',
       userSelect: 'none',
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+      zIndex: draggingId === shape.id ? 1000 : 1
     };
 
     const svgStyle = {
       overflow: 'visible',
       pointerEvents: 'auto',
-      cursor: draggingId === shape.id ? 'grabbing' : 'grab'
+      cursor: draggingId === shape.id ? 'grabbing' : 'grab',
+      display: 'block'
     };
 
     return (
@@ -324,8 +340,9 @@ export default function DigitalCollageMotivator() {
         style={containerStyle}
       >
         <svg
-          width="300"
-          height="300"
+          width={width + 10}
+          height={height + 10}
+          viewBox={`-5 -5 ${width + 10} ${height + 10}`}
           style={svgStyle}
           onMouseDown={(e) => handleShapeDragStart(e, shape)}
           onMouseMove={(e) => {
@@ -350,7 +367,7 @@ export default function DigitalCollageMotivator() {
           onTouchEnd={handleShapeDragEnd}
         >
           <path
-            d={createSVGPath(shape.path)}
+            d={createSVGPath(normalizedPath)}
             fill={shape.color}
             stroke={shape.color}
             strokeWidth="2"
