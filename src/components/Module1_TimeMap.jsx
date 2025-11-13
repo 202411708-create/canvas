@@ -142,17 +142,17 @@ export default function Module1_TimeMap({ onComplete }) {
 
     return (
       <div className="animate-fade-in space-y-6">
-        <h2 className="text-2xl font-bold text-gray-800 text-center">
+        <h2 className="text-2xl font-bold text-textDark text-center">
           {type === 'sleep' ? '어제 몇 시에 잤어? 🌙' : '오늘 아침 몇 시에 일어났어? ☀️'}
         </h2>
 
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] border border-neutral-200">
           <div className="grid grid-cols-2 gap-3">
             {times.map((hour, index) => (
               <button
                 key={hour}
                 onClick={() => type === 'sleep' ? handleSleepTimeSelect(hour) : handleWakeTimeSelect(hour)}
-                className="py-4 px-6 text-lg font-bold rounded-xl border-2 border-gray-300 hover:border-primary hover:bg-blue-50 transition-all"
+                className="py-4 px-6 text-lg font-bold rounded-xl border-2 border-neutral-300 hover:border-primary hover:bg-neutral-100 hover:shadow-[var(--shadow-soft)] transition-all"
               >
                 {labels[index]}
               </button>
@@ -166,11 +166,11 @@ export default function Module1_TimeMap({ onComplete }) {
   if (step === 'sleep') {
     return (
       <div className="max-w-lg mx-auto">
-        <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
-          <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] mb-6 border border-neutral-200">
+          <h1 className="text-2xl font-bold text-textDark text-center mb-4">
             어제를 떠올려보자! 🌙
           </h1>
-          <p className="text-gray-600 text-center">
+          <p className="text-neutral-700 text-center">
             먼저 기억의 닻을 내릴게 ⚓
           </p>
         </div>
@@ -191,17 +191,17 @@ export default function Module1_TimeMap({ onComplete }) {
     const sleepHours = calculateSleepHours();
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-12 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-12 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <div className="text-6xl">😴</div>
           <div className="space-y-2">
             <div className="text-5xl font-bold text-primary">{sleepHours}시간</div>
-            <p className="text-xl text-gray-600">수면 시간</p>
+            <p className="text-xl text-neutral-700">수면 시간</p>
           </div>
           <div className="text-6xl">🕵️</div>
-          <p className="text-xl font-semibold text-gray-800">잘 잤네! 👍</p>
+          <p className="text-xl font-semibold text-textDark">잘 잤네! 👍</p>
           <button
             onClick={goToZoneIntro}
-            className="mt-6 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="mt-6 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             다음
           </button>
@@ -213,14 +213,14 @@ export default function Module1_TimeMap({ onComplete }) {
   if (step === 'zoneIntro') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-8 shadow-lg space-y-6">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
+          <h2 className="text-2xl font-bold text-textDark text-center">
             이제 어제를 4개 구역으로 나눠볼게!
           </h2>
 
           <div className="space-y-4">
             {TIME_ZONES.map((zone, index) => (
-              <div key={zone.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+              <div key={zone.id} className="flex items-center gap-4 p-4 bg-neutral-100 rounded-xl border border-neutral-200">
                 <div className="text-4xl">{zone.emoji}</div>
                 <div>
                   <div className="font-bold text-gray-800">{zone.label}</div>
@@ -230,10 +230,10 @@ export default function Module1_TimeMap({ onComplete }) {
             ))}
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-xl">
+          <div className="bg-primary/10 p-4 rounded-xl border border-primary/20">
             <div className="flex items-start gap-3">
               <div className="text-2xl">🕵️</div>
-              <p className="text-gray-700">
+              <p className="text-neutral-700">
                 학교 시간은 정해져 있으니<br />
                 방과 후부터 채워보자!
               </p>
@@ -242,7 +242,7 @@ export default function Module1_TimeMap({ onComplete }) {
 
           <button
             onClick={() => setStep('selectActivity')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             시작하기
           </button>
@@ -255,21 +255,21 @@ export default function Module1_TimeMap({ onComplete }) {
     const zone = TIME_ZONES[currentZoneIndex];
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-6 shadow-lg space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-bold text-gray-800">
+              <h2 className="text-xl font-bold text-textDark">
                 {zone.emoji} {zone.label} ({zone.start}~{zone.end})
               </h2>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-neutral-200 rounded-full h-3 shadow-inner">
               <div className="bg-primary h-3 rounded-full" style={{ width: '100%' }}></div>
             </div>
-            <p className="text-sm text-gray-600 mt-1">남은 시간: {zone.hours}시간</p>
+            <p className="text-sm text-neutral-700 mt-1">남은 시간: {zone.hours}시간</p>
           </div>
 
           <div>
-            <h3 className="font-bold text-gray-800 mb-3">뭐 했어? (여러 개 선택 가능)</h3>
+            <h3 className="font-bold text-textDark mb-3">뭐 했어? (여러 개 선택 가능)</h3>
             <div className="grid grid-cols-4 gap-3">
               {ACTIVITY_CARDS.map(activity => (
                 <button
@@ -277,8 +277,8 @@ export default function Module1_TimeMap({ onComplete }) {
                   onClick={() => toggleActivity(activity.id)}
                   className={`p-4 rounded-xl border-2 transition-all ${
                     selectedActivities.includes(activity.id)
-                      ? 'border-primary bg-blue-50 scale-105'
-                      : 'border-gray-300 hover:border-gray-400'
+                      ? 'border-primary bg-primary/10 scale-105 shadow-[var(--shadow-soft)]'
+                      : 'border-neutral-300 hover:border-neutral-400 hover:shadow-[var(--shadow-soft)]'
                   }`}
                 >
                   <div className="text-3xl mb-1">{activity.emoji}</div>
@@ -291,10 +291,10 @@ export default function Module1_TimeMap({ onComplete }) {
           <button
             onClick={goToTimeInput}
             disabled={selectedActivities.length === 0}
-            className={`w-full py-4 rounded-xl font-bold text-lg transition-colors ${
+            className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
               selectedActivities.length === 0
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                : 'bg-primary text-white hover:bg-blue-600'
+                ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
+                : 'bg-primary text-white hover:bg-primary/90 hover:shadow-[var(--shadow-hover)]'
             }`}
           >
             다음
@@ -321,7 +321,7 @@ export default function Module1_TimeMap({ onComplete }) {
             </div>
             <button
               onClick={completeCurrentZone}
-              className="w-full py-4 bg-success text-white rounded-xl font-bold text-lg hover:bg-green-600 transition-colors"
+              className="w-full py-4 bg-success text-white rounded-xl font-bold text-lg hover:bg-success/90 hover:shadow-[var(--shadow-hover)] transition-all"
             >
               다음으로
             </button>
@@ -378,7 +378,7 @@ export default function Module1_TimeMap({ onComplete }) {
               </button>
               <button
                 onClick={handleConfirm}
-                className="flex-1 py-3 bg-primary text-white rounded-lg font-bold hover:bg-blue-600"
+                className="flex-1 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
               >
                 확정
               </button>
@@ -431,7 +431,7 @@ export default function Module1_TimeMap({ onComplete }) {
           </div>
         </div>
 
-        <div className="bg-yellow-50 border-2 border-yellow-400 rounded-2xl p-6">
+        <div className="bg-warning/10 border-2 border-warning rounded-2xl p-6">
           <div className="text-center space-y-3">
             <div className="text-4xl">💡</div>
             <h3 className="text-xl font-bold text-gray-800">발견!</h3>

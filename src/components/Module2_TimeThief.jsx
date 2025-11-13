@@ -136,7 +136,7 @@ export default function Module2_TimeThief({ onComplete }) {
   if (step === 'intro') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <h2 className="text-3xl font-bold text-gray-800">
             이제 재밌는 게임 할 거야! 🎮
           </h2>
@@ -150,7 +150,7 @@ export default function Module2_TimeThief({ onComplete }) {
             <div className="text-5xl">💨 🏃 💨</div>
           </div>
 
-          <div className="bg-blue-50 p-6 rounded-xl space-y-3">
+          <div className="bg-primary/10 p-6 rounded-xl space-y-3 border border-primary/20">
             <p className="text-gray-800 font-medium">
               카드가 나오면 판단해봐:
             </p>
@@ -168,7 +168,7 @@ export default function Module2_TimeThief({ onComplete }) {
 
           <button
             onClick={() => setStep('cards')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             시작하기
           </button>
@@ -218,7 +218,7 @@ export default function Module2_TimeThief({ onComplete }) {
               </p>
             </div>
 
-            <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-3">
+            <div className="bg-warning/10 border-2 border-warning rounded-xl p-3">
               <p className="text-sm font-semibold text-gray-700">
                 예상: {card.estimatedTime}
               </p>
@@ -231,13 +231,13 @@ export default function Module2_TimeThief({ onComplete }) {
           <div className="flex gap-4 mt-6">
             <button
               onClick={() => handleJudgment(false)}
-              className="flex-1 py-4 bg-gray-300 text-gray-700 rounded-xl font-bold text-lg hover:bg-gray-400 transition-colors"
+              className="flex-1 py-4 bg-neutral-300 text-neutral-700 rounded-xl font-bold text-lg hover:bg-neutral-400 hover:shadow-[var(--shadow-soft)] transition-all"
             >
               별로 안 빼앗음
             </button>
             <button
               onClick={() => handleJudgment(true)}
-              className="flex-1 py-4 bg-warning text-white rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors"
+              className="flex-1 py-4 bg-warning text-white rounded-xl font-bold text-lg hover:bg-warning/90 hover:shadow-[var(--shadow-hover)] transition-all"
             >
               많이 빼앗음!
             </button>
@@ -263,7 +263,7 @@ export default function Module2_TimeThief({ onComplete }) {
 
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <h2 className="text-2xl font-bold text-gray-800">
             잠깐! 멈춰볼까? 🤔
           </h2>
@@ -271,19 +271,19 @@ export default function Module2_TimeThief({ onComplete }) {
           <p className="text-gray-700">지금까지 5개 카드 중...</p>
 
           <div className="space-y-3">
-            <div className="bg-orange-50 border-2 border-orange-300 rounded-xl p-4">
+            <div className="bg-warning/15 border-2 border-warning/50 rounded-xl p-4">
               <p className="text-xl font-bold text-orange-700">
                 "많이 빼앗음" {thiefCount}개
               </p>
             </div>
-            <div className="bg-gray-50 border-2 border-gray-300 rounded-xl p-4">
+            <div className="bg-neutral-100 border-2 border-neutral-300 rounded-xl p-4">
               <p className="text-xl font-bold text-gray-700">
                 "별로 안 빼앗음" {notThiefCount}개
               </p>
             </div>
           </div>
 
-          <div className="bg-blue-50 p-6 rounded-xl">
+          <div className="bg-primary/10 p-6 rounded-xl border border-primary/20">
             <div className="text-4xl mb-3">💡</div>
             <p className="font-semibold text-gray-800">패턴 발견!</p>
             <p className="text-gray-700 mt-2">
@@ -298,7 +298,7 @@ export default function Module2_TimeThief({ onComplete }) {
               setCurrentCardIndex(5);
               setStep('cards');
             }}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             계속하기
           </button>
@@ -310,14 +310,14 @@ export default function Module2_TimeThief({ onComplete }) {
   if (step === 'complete') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <div className="text-7xl">🎊</div>
           <h2 className="text-3xl font-bold text-gray-800">잘했어!</h2>
           <p className="text-xl text-gray-700">모든 시간도둑을 찾았어!</p>
 
           <button
             onClick={() => setStep('results')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             결과 보기
           </button>
@@ -332,7 +332,7 @@ export default function Module2_TimeThief({ onComplete }) {
 
     return (
       <div className="max-w-lg mx-auto animate-fade-in space-y-6">
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] border border-neutral-200">
           <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
             🏆 너의 시간도둑 TOP 3
           </h2>
@@ -341,7 +341,7 @@ export default function Module2_TimeThief({ onComplete }) {
             {top3.map((card, index) => (
               <div
                 key={card.id}
-                className="bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-xl p-4 animate-scale-in"
+                className="bg-gradient-to-r from-warning/10 to-warning/5 border-2 border-warning/30 rounded-xl p-4 animate-scale-in shadow-[var(--shadow-soft)]"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex items-center gap-4">
@@ -364,7 +364,7 @@ export default function Module2_TimeThief({ onComplete }) {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-6">
+        <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 rounded-2xl p-6 shadow-[var(--shadow-card)]">
           <div className="text-center space-y-4">
             <div className="text-5xl">💰</div>
             <h3 className="text-xl font-bold text-gray-800">시간 계산해볼까?</h3>
@@ -384,7 +384,7 @@ export default function Module2_TimeThief({ onComplete }) {
           </div>
         </div>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-2xl p-6">
+        <div className="bg-success/10 border-2 border-success/40 rounded-2xl p-6 shadow-[var(--shadow-card)]">
           <div className="text-center space-y-3">
             <div className="text-4xl">🌟</div>
             <h3 className="text-xl font-bold text-gray-800">만약 이 시간을 되찾으면...</h3>
@@ -407,7 +407,7 @@ export default function Module2_TimeThief({ onComplete }) {
               allJudgments: judgments
             });
           }}
-          className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+          className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
         >
           다음으로
         </button>

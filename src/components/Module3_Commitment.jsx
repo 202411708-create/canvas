@@ -43,7 +43,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
   if (step === 'intro') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <h2 className="text-3xl font-bold text-gray-800">
             이제 변화를 만들어볼까? 💪
           </h2>
@@ -61,7 +61,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
                   setSelectedThief(thief);
                   setStep('setGoal');
                 }}
-                className="w-full p-4 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-xl hover:border-orange-400 transition-all text-left"
+                className="w-full p-4 bg-gradient-to-r from-warning/10 to-warning/5 border-2 border-warning/30 rounded-xl hover:border-warning hover:shadow-[var(--shadow-soft)] transition-all text-left"
               >
                 <div className="flex items-center gap-3">
                   <div className="text-4xl">
@@ -86,7 +86,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
 
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-6 shadow-lg space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
           <div className="text-center">
             <div className="text-6xl mb-3">{selectedThief.emoji}</div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
@@ -121,7 +121,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
                 <p className="text-sm text-gray-600">목표 시간</p>
               </div>
 
-              <div className="bg-green-50 border-2 border-green-300 rounded-xl p-4 text-center">
+              <div className="bg-success/10 border-2 border-success/40 rounded-xl p-4 text-center shadow-[var(--shadow-soft)]">
                 <div className="text-2xl font-bold text-green-700">
                   {Math.floor((currentMinutes - targetMinutes) / 60) > 0 &&
                     `${Math.floor((currentMinutes - targetMinutes) / 60)}시간 `}
@@ -134,7 +134,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
 
           <button
             onClick={() => setStep('selectStrategy')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             다음
           </button>
@@ -148,7 +148,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
 
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white rounded-2xl p-6 shadow-lg space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
           <div className="text-center">
             <div className="text-5xl mb-3">🤖</div>
             <h2 className="text-2xl font-bold text-gray-800">
@@ -164,7 +164,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
                   setSelectedStrategy(strategy);
                   setStep('commitment');
                 }}
-                className="w-full p-5 bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-xl hover:border-blue-400 transition-all text-left"
+                className="w-full p-5 bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary/30 rounded-xl hover:border-primary hover:shadow-[var(--shadow-soft)] transition-all text-left"
               >
                 <div className="space-y-2">
                   <div className="flex items-start justify-between">
@@ -200,14 +200,14 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
 
     return (
       <div className="max-w-lg mx-auto animate-fade-in space-y-6">
-        <div className="bg-white rounded-2xl p-6 shadow-lg space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               ✍️ 나의 다짐을 완성하자!
             </h2>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 border-3 border-orange-300 rounded-2xl p-6 space-y-4">
+          <div className="bg-gradient-to-br from-warning/15 to-warning/10 border-3 border-warning/40 rounded-2xl p-6 space-y-4 shadow-[var(--shadow-card)]">
             <div className="text-center text-3xl font-bold text-gray-800 mb-4">
               💪 나의 다짐
             </div>
@@ -247,13 +247,13 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
                 // 스크린샷 힌트
                 alert('스크린샷을 찍어서 저장해보세요! 📸');
               }}
-              className="flex-1 py-3 bg-gray-200 text-gray-700 rounded-xl font-bold hover:bg-gray-300 transition-colors"
+              className="flex-1 py-3 bg-neutral-200 text-neutral-700 rounded-xl font-bold hover:bg-neutral-300 hover:shadow-[var(--shadow-soft)] transition-all"
             >
               📸 스크린샷
             </button>
             <button
               onClick={() => setStep('encouragement')}
-              className="flex-1 py-3 bg-primary text-white rounded-xl font-bold hover:bg-blue-600 transition-colors"
+              className="flex-1 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
             >
               완료
             </button>
@@ -271,7 +271,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
             <div className="text-7xl">🎉</div>
             <h2 className="text-3xl font-bold text-gray-800">다짐 완성!</h2>
 
-            <div className="bg-blue-50 p-6 rounded-xl space-y-4">
+            <div className="bg-primary/10 p-6 rounded-xl space-y-4 border border-primary/20">
               <div className="flex items-start gap-3">
                 <div className="text-3xl">🕵️</div>
                 <div className="text-left">
@@ -283,7 +283,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
               </div>
             </div>
 
-            <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-6 space-y-3">
+            <div className="bg-warning/10 border-2 border-warning rounded-xl p-6 space-y-3 shadow-[var(--shadow-soft)]">
               <div className="text-3xl">💡</div>
               <p className="font-semibold text-gray-800">중요한 팁:</p>
               <div className="text-left space-y-2 text-gray-700">
@@ -308,7 +308,7 @@ export default function Module3_Commitment({ timeThieves, onComplete }) {
               };
               onComplete(commitmentData);
             }}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             마무리로 →
           </button>

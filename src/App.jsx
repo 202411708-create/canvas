@@ -34,35 +34,35 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-neutral-100 to-neutral-200">
       <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Progress Bar */}
         {currentModule > 0 && currentModule < 4 && (
-          <div className="mb-6 animate-slide-up">
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
+          <div className="mb-6 animate-slide-up bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-[var(--shadow-soft)]">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
                 {[1, 2, 3].map((num) => (
                   <div
                     key={num}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all shadow-[var(--shadow-soft)] ${
                       currentModule === num
-                        ? 'bg-primary text-white scale-110'
+                        ? 'bg-primary text-white scale-110 shadow-[var(--shadow-hover)]'
                         : currentModule > num
                         ? 'bg-success text-white'
-                        : 'bg-gray-200 text-gray-400'
+                        : 'bg-neutral-200 text-neutral-700'
                     }`}
                   >
                     {currentModule > num ? '✓' : num}
                   </div>
                 ))}
               </div>
-              <span className="text-sm text-gray-600 font-medium">
+              <span className="text-sm text-neutral-700 font-semibold">
                 {currentModule}/3
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-neutral-200 rounded-full h-2.5 overflow-hidden shadow-inner">
               <div
-                className="bg-gradient-to-r from-primary to-purple-500 h-2 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-primary to-success h-2.5 rounded-full transition-all duration-500"
                 style={{ width: `${(currentModule / 3) * 100}%` }}
               ></div>
             </div>

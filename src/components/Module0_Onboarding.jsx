@@ -39,12 +39,12 @@ export default function Module0_Onboarding({ onComplete }) {
   }, [countdown, onComplete]);
 
   return (
-    <div className="flex items-center justify-center min-h-[600px]">
+    <div className="flex items-center justify-center min-h-[600px] px-4">
       {/* Screen 0: 로고 */}
       {screen === 0 && (
         <div className="text-center animate-fade-in">
           <div className="text-8xl mb-4">🕵️</div>
-          <h1 className="text-3xl font-bold text-gray-800">시간탐정 프로그램</h1>
+          <h1 className="text-3xl font-bold text-textDark">시간탐정 프로그램</h1>
         </div>
       )}
 
@@ -52,13 +52,13 @@ export default function Module0_Onboarding({ onComplete }) {
       {screen === 1 && (
         <div className="text-center animate-fade-in space-y-6 max-w-md">
           <div className="text-7xl">🕵️</div>
-          <div className="bg-white rounded-2xl p-6 shadow-lg animate-scale-in">
-            <p className="text-xl text-gray-800 leading-relaxed">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] animate-scale-in border border-neutral-200">
+            <p className="text-xl text-textDark leading-relaxed">
               안녕! 나는 시간탐정이야
             </p>
           </div>
-          <div className="bg-white rounded-2xl p-6 shadow-lg animate-scale-in" style={{ animationDelay: '0.3s' }}>
-            <p className="text-xl text-gray-800 leading-relaxed">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] animate-scale-in border border-neutral-200" style={{ animationDelay: '0.3s' }}>
+            <p className="text-xl text-textDark leading-relaxed">
               오늘 너랑 특별한 미션을<br />
               함께 할 거야!
             </p>
@@ -69,22 +69,22 @@ export default function Module0_Onboarding({ onComplete }) {
       {/* Screen 2: 미션 소개 */}
       {screen === 2 && (
         <div className="text-center animate-fade-in space-y-8 max-w-lg">
-          <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-8 shadow-xl">
+          <div className="bg-gradient-to-br from-warning/80 to-warning rounded-3xl p-8 shadow-[var(--shadow-card)] border border-warning/20">
             <div className="text-5xl mb-4">🎯</div>
-            <h2 className="text-3xl font-bold text-white mb-2">오늘의 미션</h2>
-            <p className="text-2xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-white mb-2 drop-shadow-sm">오늘의 미션</h2>
+            <p className="text-2xl font-bold text-white drop-shadow-sm">
               나의 시간 사용<br />
               알아보기
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-card)] border border-neutral-200">
             <div className="text-6xl mb-4">🕵️</div>
-            <p className="text-lg text-gray-800 leading-relaxed">
+            <p className="text-lg text-textDark leading-relaxed">
               <span className="font-bold text-primary">시간은 돈보다 소중해!</span><br />
               지나간 시간은 절대 돌아오지 않거든.
             </p>
-            <p className="text-lg text-gray-800 mt-4 leading-relaxed">
+            <p className="text-lg text-textDark mt-4 leading-relaxed">
               오늘은 네가 시간을 어떻게<br />
               쓰고 있는지 탐험해볼 거야!
             </p>
@@ -95,10 +95,10 @@ export default function Module0_Onboarding({ onComplete }) {
       {/* Screen 3: 카운트다운 */}
       {screen === 3 && (
         <div className="text-center animate-fade-in space-y-8">
-          <h2 className="text-4xl font-bold text-gray-800">준비됐어?</h2>
+          <h2 className="text-4xl font-bold text-textDark">준비됐어?</h2>
 
           {countdown !== null && countdown > 0 && (
-            <div className="text-9xl font-bold text-primary animate-scale-in">
+            <div className="text-9xl font-bold text-primary animate-scale-in drop-shadow-lg">
               {countdown}
             </div>
           )}
@@ -106,7 +106,7 @@ export default function Module0_Onboarding({ onComplete }) {
           {countdown === 0 && (
             <div className="animate-scale-in space-y-4">
               <div className="text-7xl">🚀</div>
-              <h2 className="text-5xl font-bold text-primary">출발!</h2>
+              <h2 className="text-5xl font-bold text-primary drop-shadow-md">출발!</h2>
             </div>
           )}
         </div>

@@ -6,7 +6,7 @@ export default function FinalScreen({ programData, onRestart }) {
   if (step === 'summary') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in space-y-6">
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] text-center space-y-6 border border-neutral-200">
           <div className="text-7xl">🎊</div>
           <h1 className="text-3xl font-bold text-gray-800">
             오늘 탐험 완료!
@@ -17,7 +17,7 @@ export default function FinalScreen({ programData, onRestart }) {
               오늘 발견한 것:
             </h2>
 
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+            <div className="bg-primary/10 border-2 border-primary/30 rounded-xl p-4 shadow-[var(--shadow-soft)]">
               <div className="flex items-start gap-3">
                 <div className="text-2xl">✅</div>
                 <div>
@@ -29,7 +29,7 @@ export default function FinalScreen({ programData, onRestart }) {
               </div>
             </div>
 
-            <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+            <div className="bg-warning/10 border-2 border-warning/30 rounded-xl p-4 shadow-[var(--shadow-soft)]">
               <div className="flex items-start gap-3">
                 <div className="text-2xl">✅</div>
                 <div>
@@ -41,7 +41,7 @@ export default function FinalScreen({ programData, onRestart }) {
               </div>
             </div>
 
-            <div className="bg-green-50 border-2 border-green-200 rounded-xl p-4">
+            <div className="bg-success/10 border-2 border-success/30 rounded-xl p-4 shadow-[var(--shadow-soft)]">
               <div className="flex items-start gap-3">
                 <div className="text-2xl">✅</div>
                 <div>
@@ -56,7 +56,7 @@ export default function FinalScreen({ programData, onRestart }) {
 
           <button
             onClick={() => setStep('nextSession')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             다음
           </button>
@@ -68,7 +68,7 @@ export default function FinalScreen({ programData, onRestart }) {
   if (step === 'nextSession') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in space-y-6">
-        <div className="bg-white rounded-2xl p-8 shadow-lg space-y-6">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-[var(--shadow-card)] space-y-6 border border-neutral-200">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
               📅 다음 시간에는...
@@ -76,7 +76,7 @@ export default function FinalScreen({ programData, onRestart }) {
           </div>
 
           <div className="space-y-4">
-            <div className="bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-xl p-5">
+            <div className="bg-gradient-to-r from-warning/10 to-warning/5 border-2 border-warning/30 rounded-xl p-5 shadow-[var(--shadow-soft)]">
               <div className="flex items-center gap-4">
                 <div className="text-4xl">🛡️</div>
                 <div>
@@ -86,7 +86,7 @@ export default function FinalScreen({ programData, onRestart }) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-xl p-5">
+            <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-2 border-primary/30 rounded-xl p-5 shadow-[var(--shadow-soft)]">
               <div className="flex items-center gap-4">
                 <div className="text-4xl">⏰</div>
                 <div>
@@ -96,7 +96,7 @@ export default function FinalScreen({ programData, onRestart }) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-green-50 to-teal-50 border-2 border-green-200 rounded-xl p-5">
+            <div className="bg-gradient-to-r from-success/10 to-success/5 border-2 border-success/30 rounded-xl p-5 shadow-[var(--shadow-soft)]">
               <div className="flex items-center gap-4">
                 <div className="text-4xl">🎯</div>
                 <div>
@@ -107,7 +107,7 @@ export default function FinalScreen({ programData, onRestart }) {
             </div>
           </div>
 
-          <div className="bg-purple-50 border-2 border-purple-300 rounded-xl p-6 text-center">
+          <div className="bg-primary/10 border-2 border-primary/40 rounded-xl p-6 text-center shadow-[var(--shadow-soft)]">
             <p className="text-lg font-semibold text-gray-800">
               더 재밌어질 거야! 😊
             </p>
@@ -115,7 +115,7 @@ export default function FinalScreen({ programData, onRestart }) {
 
           <button
             onClick={() => setStep('final')}
-            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors"
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-primary/90 hover:shadow-[var(--shadow-hover)] transition-all"
           >
             다음
           </button>
@@ -127,7 +127,7 @@ export default function FinalScreen({ programData, onRestart }) {
   if (step === 'final') {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-10 shadow-2xl text-center space-y-8">
+        <div className="bg-gradient-to-br from-neutral-50 via-neutral-100 to-neutral-200 rounded-3xl p-10 shadow-[var(--shadow-card)] text-center space-y-8 border border-neutral-300">
           <div className="text-8xl">🕵️</div>
 
           <div className="space-y-4">
@@ -154,7 +154,7 @@ export default function FinalScreen({ programData, onRestart }) {
           <div className="flex flex-col gap-3">
             <button
               onClick={onRestart}
-              className="w-full py-4 bg-white border-2 border-primary text-primary rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="w-full py-4 bg-white border-2 border-primary text-primary rounded-xl font-bold text-lg hover:bg-primary/10 hover:shadow-[var(--shadow-hover)] transition-all"
             >
               처음부터 다시 하기
             </button>
@@ -164,7 +164,7 @@ export default function FinalScreen({ programData, onRestart }) {
                 console.log('Program Data:', programData);
                 alert('데이터가 콘솔에 출력되었습니다!');
               }}
-              className="w-full py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
+              className="w-full py-3 bg-neutral-200 text-neutral-700 rounded-xl font-semibold hover:bg-neutral-300 hover:shadow-[var(--shadow-soft)] transition-all"
             >
               📊 내 결과 보기
             </button>
